@@ -59,10 +59,11 @@ love_and_bball = media.Movie("Love and Basketball",
 up = media.Movie("Up", "An old man travels to Paradise Falls in his home "
                  "equipped with balloons, inadvertently taking a young "
                  "stowaway.",
-                 "http://ia.media-imdb.com/images/M/MV5BMTk3NDE2NzI4NF5BMl5Ban"
-                 "BnXkFtZTgwNzE1MzEyMTE@._V1_SX214_AL_.jpg",
+                 "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Up_%2820"
+                 "09_film%29.jpg/220px-Up_%282009_film%29.jpg",
                  "https://www.youtube.com/watch?v=pkqzFUhGPJg",
                  "Edward Asner, Jordan Nagai, John Ratzenberger", "5/29/2009")
+
 
 movies = [toy_story, avatar, school_of_rock,
           ratatouille, midnight_in_paris, hunger_games, love_and_bball, up]
