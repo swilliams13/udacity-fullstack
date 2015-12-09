@@ -75,6 +75,20 @@ main_page_head = '''
           background-color: #315a7d; 
         }
 
+        span.back-to-home,
+        span.back-to-gh {
+          display: block;
+          width: 50%; }
+
+        span.back-to-home {
+          float: left;
+          text-align: left; }
+
+        span.back-to-gh {
+          float: right;
+          text-align: right; }
+
+
         /* Header */
         header {
             padding: 30px 0;
@@ -242,7 +256,12 @@ main_page_content = '''
             <!-- Main Page Content -->
             <div id="info-bar">
                 <div class="container">
-                    <a href="http://swilliams13.github.io"><- Back to Main Site</a>
+                    <span class="back-to-home">
+                        <a href="http://swilliams13.github.io"><- Back to Main Site</a>
+                    </span>
+                    <span class="back-to-gh">
+                        <a href="https://github.com/swilliams13/udacity-fullstack/tree/master/project1">View on GitHub</a>
+                    </span>
                 </div>
             </div>
             <header>
