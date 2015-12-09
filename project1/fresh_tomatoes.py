@@ -17,9 +17,99 @@ main_page_head = '''
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <style type="text/css" media="screen">
+       /* GLOBALS */
         body {
-            padding-top: 80px;
+            background-color: steelblue;
+            font-weight: 400;
+            line-height: 1.8;
         }
+
+        /* Headings */
+        h1, h2, h3, h4, h5, h6 {
+          line-height: 1;
+          font-weight: 400; 
+        }
+
+        a {
+          text-decoration: none;
+          color: steelblue; 
+        }
+
+        a:hover {
+          color: #315a7d; 
+        }
+
+        /* Template */
+        #wrapper {
+            width: 100%;
+            margin: 0 auto; 
+        }
+
+        #main {
+            background-color: #fff;
+            padding: 30px 0; 
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px; 
+        }
+
+        /* Info Bar */
+        #info-bar {
+          background-color: #38678f; 
+        }
+
+        #info-bar a {
+          color: white;
+          font-size: 14px;
+          text-transform: uppercase;
+          display: inline-block;
+          margin: 0;
+          padding: 10px; 
+        }
+
+        #info-bar a:hover {
+          background-color: #315a7d; 
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+        }
+
+        #title {
+            text-align: center;
+        }
+        #title h1 {
+            color: #fff;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        #title h2 {
+            color: #8db3d3;
+            font-size: 20px;            
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            text-align: center; 
+        }
+
+        footer span {
+            color: #fff; 
+        }
+
+        footer span a {
+            color: #8db3d3;
+        }
+
+
+        /* Udacity */
+
         #trailer .modal-dialog {
             margin-top: 200px;
             width: 640px;
@@ -40,7 +130,6 @@ main_page_head = '''
             padding-top: 20px;
         }
         .movie-tile:hover {
-            background-color: #EEE;
             cursor: pointer;
         }
         .scale-media {
@@ -55,6 +144,53 @@ main_page_head = '''
             left: 0;
             top: 0;
             background-color: white;
+        }
+
+        /** Figures **/
+        figure {
+            margin: 0;
+            position: relative;
+        }
+        figure img {
+            position: relative;
+            z-index: 10;
+            max-width: 100%;
+            backface-visibility: hidden;
+            transition: all 0.5s;
+        }
+        figure figcaption {
+            display: block;
+            position: absolute;
+            z-index: 5;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: steelblue;
+            text-align: center;
+            backface-visibility: hidden;
+            transform: rotateY(-180deg);
+            transition: all 0.5s;
+        }
+        figure h3 {
+            color: #fff;
+            font-size: 22px;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-top: 25%
+        }
+        figure span {
+            color: #b2cce1;
+            display: block;
+            line-height: 1.2;
+        }
+        figure:hover img,
+        figure.hover img {
+            transform: rotateY(180deg);
+        }
+        figure:hover figcaption,
+        figure.hover figcaption {
+            transform: rotateY(0);
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -81,11 +217,6 @@ main_page_head = '''
             $(this).next("div").show("fast", showNext);
           });
         });
-        // Show movie details on hover
-        $(document).on('mouseover', '.movie-tile', function (event) {
-            event.target.style.color = "purple";
-        });
-        
     </script>
 </head>
 '''
@@ -93,34 +224,46 @@ main_page_head = '''
 
 # The main page layout and title bar
 main_page_content = '''
-  <body>
-    <!-- Trailer Video Modal -->
-    <div class="modal" id="trailer">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
-            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
-          </a>
-          <div class="scale-media" id="trailer-video-container">
-          </div>
-        </div>
-      </div>
-    </div>
+    <body>
+        <div id="wrapper">
+            <!-- Trailer Video Modal -->
+            <div class="modal" id="trailer">
+            <div class="modal-dialog">
+            <div class="modal-content">
+              <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+                <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+              </a>
+              <div class="scale-media" id="trailer-video-container">
+              </div>
+            </div>
+            </div>
+            </div>
 
-    <!-- Main Page Content -->
-    <div class="container">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
-          </div>
+            <!-- Main Page Content -->
+            <div id="info-bar">
+                <div class="container">
+                    <a href="http://swilliams13.github.io"><- Back to Main Site</a>
+                </div>
+            </div>
+            <header>
+                <div id="title" class="container">
+                    <h1>Fresh Tomatoes Movie Trailers</h1>
+                </div>
+            </header>
+            <div id="main">
+                <div class="container">
+                    {movie_tiles}
+                </div>
+            </div>
+            <footer>
+                <div class="container">
+                    <span> &copy; 2015, Samantha Williams
+                    <br>
+                    <a href="http://swilliams13.github.io" target="_blank">swilliams13.github.io</a> </span>
+                </div>
+            </footer>
         </div>
-      </div>
-    </div>
-    <div class="container">
-      {movie_tiles}
-    </div>
-  </body>
+    </body>
 </html>
 '''
 
@@ -128,10 +271,14 @@ main_page_content = '''
 # A single movie entry html template
 movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
-    <h2>{movie_title}</h2>
-    <p>Stars: {movie_stars}</p>
-    <p>Release Date: {movie_release}</p>
+    <figure>
+        <img src="{poster_image_url}" width="220" height="342">
+        <figcaption>
+            <h3>{movie_title}</h2>
+            <span>Stars: {movie_stars}</span>
+            <span>Release Date: {movie_release}</span>
+        </figcaption>
+    </figure>
 </div>
 '''
 

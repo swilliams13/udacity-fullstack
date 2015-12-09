@@ -11,9 +11,99 @@
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <style type="text/css" media="screen">
+       /* GLOBALS */
         body {
-            padding-top: 80px;
+            background-color: steelblue;
+            font-weight: 400;
+            line-height: 1.8;
         }
+
+        /* Headings */
+        h1, h2, h3, h4, h5, h6 {
+          line-height: 1;
+          font-weight: 400; 
+        }
+
+        a {
+          text-decoration: none;
+          color: steelblue; 
+        }
+
+        a:hover {
+          color: #315a7d; 
+        }
+
+        /* Template */
+        #wrapper {
+            width: 100%;
+            margin: 0 auto; 
+        }
+
+        #main {
+            background-color: #fff;
+            padding: 30px 0; 
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px; 
+        }
+
+        /* Info Bar */
+        #info-bar {
+          background-color: #38678f; 
+        }
+
+        #info-bar a {
+          color: white;
+          font-size: 14px;
+          text-transform: uppercase;
+          display: inline-block;
+          margin: 0;
+          padding: 10px; 
+        }
+
+        #info-bar a:hover {
+          background-color: #315a7d; 
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+        }
+
+        #title {
+            text-align: center;
+        }
+        #title h1 {
+            color: #fff;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        #title h2 {
+            color: #8db3d3;
+            font-size: 20px;            
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            text-align: center; 
+        }
+
+        footer span {
+            color: #fff; 
+        }
+
+        footer span a {
+            color: #8db3d3;
+        }
+
+
+        /* Udacity */
+
         #trailer .modal-dialog {
             margin-top: 200px;
             width: 640px;
@@ -34,7 +124,6 @@
             padding-top: 20px;
         }
         .movie-tile:hover {
-            background-color: #EEE;
             cursor: pointer;
         }
         .scale-media {
@@ -49,6 +138,53 @@
             left: 0;
             top: 0;
             background-color: white;
+        }
+
+        /** Figures **/
+        figure {
+            margin: 0;
+            position: relative;
+        }
+        figure img {
+            position: relative;
+            z-index: 10;
+            max-width: 100%;
+            backface-visibility: hidden;
+            transition: all 0.5s;
+        }
+        figure figcaption {
+            display: block;
+            position: absolute;
+            z-index: 5;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: steelblue;
+            text-align: center;
+            backface-visibility: hidden;
+            transform: rotateY(-180deg);
+            transition: all 0.5s;
+        }
+        figure h3 {
+            color: #fff;
+            font-size: 22px;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-top: 25%
+        }
+        figure span {
+            color: #b2cce1;
+            display: block;
+            line-height: 1.2;
+        }
+        figure:hover img,
+        figure.hover img {
+            transform: rotateY(180deg);
+        }
+        figure:hover figcaption,
+        figure.hover figcaption {
+            transform: rotateY(0);
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -75,96 +211,135 @@
             $(this).next("div").show("fast", showNext);
           });
         });
-        // Show movie details on hover
-        $(document).on('mouseover', '.movie-tile', function (event) {
-            event.target.style.color = "purple";
-        });
-        
     </script>
 </head>
 
-  <body>
-    <!-- Trailer Video Modal -->
-    <div class="modal" id="trailer">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
-            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
-          </a>
-          <div class="scale-media" id="trailer-video-container">
-          </div>
-        </div>
-      </div>
-    </div>
+    <body>
+        <div id="wrapper">
+            <!-- Trailer Video Modal -->
+            <div class="modal" id="trailer">
+            <div class="modal-dialog">
+            <div class="modal-content">
+              <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+                <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+              </a>
+              <div class="scale-media" id="trailer-video-container">
+              </div>
+            </div>
+            </div>
+            </div>
 
-    <!-- Main Page Content -->
-    <div class="container">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      
+            <!-- Main Page Content -->
+            <div id="info-bar">
+                <div class="container">
+                    <a href="http://swilliams13.github.io"><- Back to Main Site</a>
+                </div>
+            </div>
+            <header>
+                <div id="title" class="container">
+                    <h1>Fresh Tomatoes Movie Trailers</h1>
+                </div>
+            </header>
+            <div id="main">
+                <div class="container">
+                    
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="vwyZH85NQC4" data-toggle="modal" data-target="#trailer">
-    <img src="http://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg" width="220" height="342">
-    <h2>Toy Story</h2>
-    <p>Stars: Tom Hanks,Tim Allen,Don Rickles</p>
-    <p>Release Date: 11/22/1995</p>
+    <figure>
+        <img src="http://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg" width="220" height="342">
+        <figcaption>
+            <h3>Toy Story</h2>
+            <span>Stars: Tom Hanks,Tim Allen,Don Rickles</span>
+            <span>Release Date: 11/22/1995</span>
+        </figcaption>
+    </figure>
 </div>
 
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Avatar-Teaser-Poster.jpg/220px-Avatar-Teaser-Poster.jpg" width="220" height="342">
-    <h2>Avatar</h2>
-    <p>Stars: Sam Worthington, Zoe Saldana, Sigourney Weaver</p>
-    <p>Release Date: 12/18/2009</p>
+    <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Avatar-Teaser-Poster.jpg/220px-Avatar-Teaser-Poster.jpg" width="220" height="342">
+        <figcaption>
+            <h3>Avatar</h2>
+            <span>Stars: Sam Worthington, Zoe Saldana, Sigourney Weaver</span>
+            <span>Release Date: 12/18/2009</span>
+        </figcaption>
+    </figure>
 </div>
 
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="XCwy6lW5Ixc" data-toggle="modal" data-target="#trailer">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/11/School_of_Rock_Poster.jpg/220px-School_of_Rock_Poster.jpg" width="220" height="342">
-    <h2>School of Rock</h2>
-    <p>Stars: Jack Black, Mike White, Joan Cusack</p>
-    <p>Release Date: 10/3/2003</p>
+    <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/11/School_of_Rock_Poster.jpg/220px-School_of_Rock_Poster.jpg" width="220" height="342">
+        <figcaption>
+            <h3>School of Rock</h2>
+            <span>Stars: Jack Black, Mike White, Joan Cusack</span>
+            <span>Release Date: 10/3/2003</span>
+        </figcaption>
+    </figure>
 </div>
 
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="uVeNEbh3A4U" data-toggle="modal" data-target="#trailer">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/50/RatatouillePoster.jpg/220px-RatatouillePoster.jpg" width="220" height="342">
-    <h2>Ratatouille</h2>
-    <p>Stars: Brad Garrett, Lou Romano, Patton Oswalt</p>
-    <p>Release Date: 6/29/2007</p>
+    <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/50/RatatouillePoster.jpg/220px-RatatouillePoster.jpg" width="220" height="342">
+        <figcaption>
+            <h3>Ratatouille</h2>
+            <span>Stars: Brad Garrett, Lou Romano, Patton Oswalt</span>
+            <span>Release Date: 6/29/2007</span>
+        </figcaption>
+    </figure>
 </div>
 
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FAfR8omt-CY" data-toggle="modal" data-target="#trailer">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Midnight_in_Paris_Poster.jpg/215px-Midnight_in_Paris_Poster.jpg" width="220" height="342">
-    <h2>Midnight in Paris</h2>
-    <p>Stars: Owen Wilson, Rachel McAdams, Kathy Bates</p>
-    <p>Release Date: 6/10/2011</p>
+    <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Midnight_in_Paris_Poster.jpg/215px-Midnight_in_Paris_Poster.jpg" width="220" height="342">
+        <figcaption>
+            <h3>Midnight in Paris</h2>
+            <span>Stars: Owen Wilson, Rachel McAdams, Kathy Bates</span>
+            <span>Release Date: 6/10/2011</span>
+        </figcaption>
+    </figure>
 </div>
 
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="4S9a5V9ODuY" data-toggle="modal" data-target="#trailer">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/42/HungerGamesPoster.jpg/220px-HungerGamesPoster.jpg" width="220" height="342">
-    <h2>Hunger Games</h2>
-    <p>Stars: Jennifer Lawrence, Josh Hutcherson, Liam Hemsworth</p>
-    <p>Release Date: 3/23/2012</p>
+    <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/42/HungerGamesPoster.jpg/220px-HungerGamesPoster.jpg" width="220" height="342">
+        <figcaption>
+            <h3>Hunger Games</h2>
+            <span>Stars: Jennifer Lawrence, Josh Hutcherson, Liam Hemsworth</span>
+            <span>Release Date: 3/23/2012</span>
+        </figcaption>
+    </figure>
 </div>
 
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Ur83i6_BjbE" data-toggle="modal" data-target="#trailer">
-    <img src="https://upload.wikimedia.org/wikipedia/en/0/02/LBmoviePoster.jpg" width="220" height="342">
-    <h2>Love and Basketball</h2>
-    <p>Stars: Sanaa Lathan, Omar Epps</p>
-    <p>Release Date: 4/21/2000</p>
+    <figure>
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/02/LBmoviePoster.jpg" width="220" height="342">
+        <figcaption>
+            <h3>Love and Basketball</h2>
+            <span>Stars: Sanaa Lathan, Omar Epps</span>
+            <span>Release Date: 4/21/2000</span>
+        </figcaption>
+    </figure>
 </div>
 
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="pkqzFUhGPJg" data-toggle="modal" data-target="#trailer">
-    <img src="http://ia.media-imdb.com/images/M/MV5BMTk3NDE2NzI4NF5BMl5BanBnXkFtZTgwNzE1MzEyMTE@._V1_SX214_AL_.jpg" width="220" height="342">
-    <h2>Up</h2>
-    <p>Stars: Edward Asner, Jordan Nagai, John Ratzenberger</p>
-    <p>Release Date: 5/29/2009</p>
+    <figure>
+        <img src="http://ia.media-imdb.com/images/M/MV5BMTk3NDE2NzI4NF5BMl5BanBnXkFtZTgwNzE1MzEyMTE@._V1_SX214_AL_.jpg" width="220" height="342">
+        <figcaption>
+            <h3>Up</h2>
+            <span>Stars: Edward Asner, Jordan Nagai, John Ratzenberger</span>
+            <span>Release Date: 5/29/2009</span>
+        </figcaption>
+    </figure>
 </div>
 
-    </div>
-  </body>
+                </div>
+            </div>
+            <footer>
+                <div class="container">
+                    <span> &copy; 2015, Samantha Williams
+                    <br>
+                    <a href="http://swilliams13.github.io" target="_blank">swilliams13.github.io</a> </span>
+                </div>
+            </footer>
+        </div>
+    </body>
 </html>
