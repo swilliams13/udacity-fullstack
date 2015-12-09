@@ -1,6 +1,7 @@
 import media
 import fresh_tomatoes
 
+# Create a instance of movie with the movies details
 toy_story = media.Movie("Toy Story",
                         "A story of a boy and his toys that come to life",
                         "http://upload.wikimedia.org/wikipedia/en/1/13/Toy_Sto"
@@ -65,7 +66,9 @@ up = media.Movie("Up", "An old man travels to Paradise Falls in his home "
                  "Edward Asner, Jordan Nagai, John Ratzenberger", "5/29/2009")
 
 
+# Add all insances to movie array to be passed to web site
 movies = [toy_story, avatar, school_of_rock,
           ratatouille, midnight_in_paris, hunger_games, love_and_bball, up]
 
+# Pass movies to script that builds out HTML structure
 fresh_tomatoes.open_movies_page(movies)

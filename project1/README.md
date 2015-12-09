@@ -30,3 +30,8 @@ If you want to customize the project (add your own movies, etc.):
 To customize this project for your own use, you'll need:
 - Python 2 or 3 installed.
 	- Download the latest version of Python [here](https://www.python.org/downloads/)
+
+#### References
+- The foundation for this project was built by completing the Udacity course, [Programming Foundations with Python: Learn Object-Oriented Programming](https://www.udacity.com/course/programming-foundations-with-python--ud036-nd)
+- I further enhanced the project with additional movie details and HTML5/CSS3 features
+	- Followed this [tutorial](http://callmenick.com/post/image-captions-that-reveal-with-css3-transitions) to add CSS3 transitions for the image captions

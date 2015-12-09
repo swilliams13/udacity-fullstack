@@ -14,5 +14,7 @@ class Movie():
         self.actors = movie_actors
         self.release_date = movie_release_date
 
+    """ This method opens the movie trailer in the webbrowser """
+
     def show_trailer(self):
         webbrowser.open(self.trailer_youtube_url)
