@@ -9,15 +9,10 @@ Uses:
 
 ## Getting Started
 ### Live Demo of App
-http://
+[Fresh Tomatoes](http://swilliams13.github.io/udacity-fullstack/project1/fresh_tomatoes.html)
 
 ### How to Run
-1. Clone this repository
-2. Run fresh_tomatoes.py
-3. Open fresh_tomatoes.html in your browser to view website
-
-git clone https://github.com/jkbr/httpie.git
-
-3. Click on fresh_tomatoes.html to run in your default browser.
-
-g
+1. Clone this [repository](https://github.com/swilliams13/udacity-fullstack.git)
+2. Navigate to project1 directory
+3. Run fresh_tomatoes.py
+4. Open fresh_tomatoes.html in your browser to view website
