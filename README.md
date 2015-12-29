@@ -5,6 +5,8 @@ This repository is my project work for [Udacity's Full Stack Web Developer Nanod
 
 #### Projects
 - Project 1: [Movie Trailer Website](http://swilliams13.github.io/udacity-fullstack/project1/fresh_tomatoes.html)
+- Project 2: [Tournament Results](http://swilliams13.github.io/udacity-fullstack/project2/)
 
 #### Courses Completed
 - [Programming Foundations with Python: Learn Object-Oriented Programming](https://www.udacity.com/course/programming-foundations-with-python--ud036-nd) December 2015
+- [Intro to Relational Databases] (https://www.udacity.com/course/intro-to-relational-databases--ud197) December 2015

@@ -22,9 +22,7 @@ If you want to customize the project (add your own movies, etc.):
 1. Clone this [repository](https://github.com/swilliams13/udacity-fullstack.git)
 2. Navigate to the project1 directory.
 3. Make your changes to the code and save.
-4. Run entertainment_center.py. 
-	- This will build out the fresh_tomatoes.html file with your changes.
-5. Double click the fresh_tomatoes.html to open the file in your web browser.
+4. Run entertainment_center.py. This opens a newly generated copy of fresh_tomatoes.html.
 
 ####Requirements
 To customize this project for your own use, you'll need:
