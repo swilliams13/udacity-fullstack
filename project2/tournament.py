@@ -4,7 +4,21 @@
 #
 
 import psycopg2
+@contextlib.contextmanager
 
+def get_cursor():
+    """ Helper function to get database cursor """
+    conn = connect()
+    c = conn.cursor()
+    try:
+        yield c
+    except:
+        raise
+    else
+        conn.commit()
+    finally:
+        c.close()
+        conn.close()
 
 def connect():
     """Connect to the PostgreSQL database.  Returns a database connection."""
@@ -13,29 +27,20 @@ def connect():
 
 def deleteMatches():
     """Remove all the match records from the database."""
-    conn = connect()
-    c = conn.cursor()
-    c.execute("delete from matches where id > 0;")
-    conn.commit()
-    conn.close()
-
-
+    with get_cursor() as c:
+        c.execute("delete from matches where id > 0;")
+    
 def deletePlayers():
     """Remove all the player records from the database."""
-    conn = connect()
-    c = conn.cursor()
-    c.execute("delete from players where id > 0;")
-    conn.commit()
-    conn.close()
-
-
+    with get_cursor() as c:
+        c.execute("delete from players where id > 0;")
+    
 def countPlayers():
     """Returns the number of players currently registered."""
-    conn = connect()
-    c = conn.cursor()
-    c.execute("select count(*) as num from players;")
-    count = c.fetchone()
-    conn.close()
+    with get_cursor() as c:
+        c.execute("select count(*) as num from players;")
+        count = c.fetchone()
+    
     return count[0]
 
 
@@ -48,13 +53,10 @@ def registerPlayer(name):
     Args:
       name: the player's full name (need not be unique).
     """
-    conn = connect()
-    c = conn.cursor()
-    c.execute("insert into players (name) values (%s);", (name,))
-    conn.commit()
-    conn.close()
-
-
+    with get_cursor() as c:
+        c.execute("insert into players (name) values (%s);", (name,))
+    
+    
 def playerStandings():
     """Returns a list of the players and their win records, sorted by wins.
 
@@ -68,11 +70,10 @@ def playerStandings():
         wins: the number of matches the player has won
         matches: the number of matches the player has played
     """
-    conn = connect()
-    c = conn.cursor()
-    c.execute("select * from standings;")
-    standings = list(c.fetchall())
-    conn.close()
+    with get_cursor() as c:
+        c.execute("select * from standings;")
+        standings = list(c.fetchall())
+    
     return standings
 
 
@@ -83,13 +84,11 @@ def reportMatch(winner, loser):
       winner:  the id number of the player who won
       loser:  the id number of the player who lost
     """
-    conn = connect()
-    c = conn.cursor()
-    c.execute(
+    with get_cursor() as c:
+        c.execute(
         "insert into matches (winner_id, loser_id) values (%s, %s)",
         (winner, loser))
-    conn.commit()
-    conn.close()
+    
 
 
 def swissPairings():
@@ -107,10 +106,9 @@ def swissPairings():
         id2: the second player's unique id
         name2: the second player's name
     """
-    conn = connect()
-    c = conn.cursor()
-    c.execute("select distinct a.id, a.name, b.id, b.name from standings as a,"
+    with get_cursor() as c:
+        c.execute("select distinct a.id, a.name, b.id, b.name from standings as a,"
               "standings as b where a.wins=b.wins and a.id < b.id")
-    standings = list(c.fetchall())
-    conn.close()
+        standings = list(c.fetchall())
+    
     return standings
