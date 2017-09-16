@@ -89,13 +89,7 @@ hr {
   width: 6vw;
 }
 
-header:hover svg#logo {
-  fill: #7d97ad;
-  -webkit-filter: drop-shadow(3px 3px 3px #ddd);
-  filter: drop-shadow(3px 3px 3px #ddd);
-}
-
-.featured {
+main {
   margin-top: 2em;
 }
 
@@ -110,29 +104,15 @@ a:hover [class*="zocial-"]:before {
   color: #7d97ad;
 }
 
-div#social a {
+.social a {
   margin: 1em 0 0 0;
   font-size: 1.3em;
 }
 
-div#social a:last-of-type {
+.social a:last-of-type {
   margin: 0;
 }
 
-div#social {
+.social {
   line-height: 2em;
-}
-
-section p:last-of-type {
-  margin: 0;
-}
-
-section {
-  border-bottom: 1px solid #eee;
-}
-
-section:last-of-type {
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 2em;
-  padding-bottom: 2em;
 }
