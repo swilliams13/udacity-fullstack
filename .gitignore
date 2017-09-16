@@ -58,3 +58,7 @@ target/
 
 # MAC
 .DS_Store
+node_modules/
+img_src/
+package.json
+gruntfile.js
