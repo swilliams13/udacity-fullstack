@@ -19,8 +19,8 @@ article {
   padding-bottom: 1em;
 }
 
-hr {
-  border-top: 4px solid #7d97ad;
+.hr-rule {
+  border-bottom: 4px solid #7d97ad;
 }
 
 @media screen and (min-width:900px) {
@@ -79,6 +79,12 @@ hr {
       margin-bottom: .2em;
       font-size: 1em;
   }
+}
+
+.logo {
+  height: 6vw;
+  margin: 0 auto 0.5em auto;
+  width: 6vw;
 }
 
 main {
