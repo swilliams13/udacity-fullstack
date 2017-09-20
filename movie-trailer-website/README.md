@@ -8,7 +8,7 @@ The purpose of this project is to create a Movie Trailer Website that lets visit
 - Written in Python
 
 ## Getting Started
-[View Demo](http://swilliams13.github.io/udacity-fullstack/project1/fresh_tomatoes.html)
+[View Demo](http://swilliams13.github.io/udacity-fullstack/movie-trailer-website/fresh_tomatoes.html)
 
 ### How to Run
 To run the project as it is:
@@ -27,9 +27,9 @@ If you want to customize the project (add your own movies, etc.):
 #### Requirements
 To customize this project for your own use, you'll need:
 - Python 2 or 3 installed.
-    - Download the latest version of Python [here](https://www.python.org/downloads/)
+	- Download the latest version of Python [here](https://www.python.org/downloads/)
 
 #### References
 - The foundation for this project was built by completing the Udacity course, [Programming Foundations with Python: Learn Object-Oriented Programming](https://www.udacity.com/course/programming-foundations-with-python--ud036-nd)
 - I further enhanced the project with additional movie details and HTML5/CSS3 features
-    - Followed this [tutorial](http://callmenick.com/post/image-captions-that-reveal-with-css3-transitions) to add CSS3 transitions for the image captions
+	- Followed this [tutorial](http://callmenick.com/post/image-captions-that-reveal-with-css3-transitions) to add CSS3 transitions for the image captions

@@ -27,39 +27,39 @@ main_page_head = '''
         /* Headings */
         h1, h2, h3, h4, h5, h6 {
           line-height: 1;
-          font-weight: 400; 
+          font-weight: 400;
         }
 
         a {
           text-decoration: none;
-          color: steelblue; 
+          color: steelblue;
         }
 
         a:hover {
-          color: #315a7d; 
+          color: #315a7d;
         }
 
         /* Template */
         #wrapper {
             width: 100%;
-            margin: 0 auto; 
+            margin: 0 auto;
         }
 
         #main {
             background-color: #fff;
-            padding: 30px 0; 
+            padding: 30px 0;
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 30px; 
+            padding: 0 30px;
         }
 
         /* Info Bar */
         #info-bar {
-          background-color: #38678f; 
+          background-color: #38678f;
         }
 
         #info-bar a {
@@ -68,11 +68,11 @@ main_page_head = '''
           text-transform: uppercase;
           display: inline-block;
           margin: 0;
-          padding: 10px; 
+          padding: 10px;
         }
 
         #info-bar a:hover {
-          background-color: #315a7d; 
+          background-color: #315a7d;
         }
 
         span.back-to-home,
@@ -104,17 +104,17 @@ main_page_head = '''
         }
         #title h2 {
             color: #8db3d3;
-            font-size: 20px;            
+            font-size: 20px;
         }
 
         /* Footer */
         footer {
             padding: 30px 0;
-            text-align: center; 
+            text-align: center;
         }
 
         footer span {
-            color: #fff; 
+            color: #fff;
         }
 
         footer span a {
@@ -260,7 +260,7 @@ main_page_content = '''
                         <a href="http://swilliams13.github.io"><- Back to Main Site</a>
                     </span>
                     <span class="back-to-gh">
-                        <a href="https://github.com/swilliams13/udacity-fullstack/tree/master/project1">View on GitHub</a>
+                        <a href="https://github.com/swilliams13/udacity-fullstack/tree/master/movie-trailer-website/">View on GitHub</a>
                     </span>
                 </div>
             </div>
