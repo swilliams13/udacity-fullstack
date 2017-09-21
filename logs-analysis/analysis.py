@@ -3,14 +3,20 @@ import psycopg2
 
 
 def connect(database_name="news"):
+    try:
         db = psycopg2.connect("dbname={}".format(database_name))
         cursor = db.cursor()
         return db, cursor
+    except Exception:
+        print "Error"
 
 
 def runQuery(cursor, query):
+    try:
         cursor.execute(query)
         return cursor.fetchall()
+    except Exception:
+        print "Error"
 
 
 def logAnalysis():
