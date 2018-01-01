@@ -1,0 +1,60 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container">
+    <div class="row catalog">
+        <div class="col-md-3 category-sidebar">
+            <div class="row">
+                <h3>Categories</h3>
+            </div>
+            {% for category in categories %}
+            <div class="row">
+                <a href = "{{url_for('showCategory', category_name = category.name)}}">
+                    <p>{{category.name}}</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-9 item-list">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                  <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+                  {% if messages %}
+                    {% for category, message in messages %}
+                      <div class="row alert alert-{{ category }} alert-dismissible" role="alert">
+                      <button type="button" class="close alert-dismiss-btn" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <!-- <strong>Title</strong> --> {{ message }}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+            <div class="row">
+                {% if request.path == "/catalog" or request.path == "/" %}
+                    <h3>Latest Items</h3>
+                {% else %}
+                    {% if items|length == 1 %}
+                        <h3>{{category.name}} Items ({{items|length}} item)</h3>
+                    {% else %}
+                        <h3>{{category.name}} Items ({{items|length}} items)</h3>
+                    {% endif %}
+                {% endif %}
+                {% if 'username' in session %}
+                <nav class="nav ml-auto">
+                    <a class="nav-link active" href="{{url_for('newItem')}}">Add Item</a>
+                </nav>
+                {% endif %}
+            </div>
+            {% for item in items %}
+            <div class="row">
+                <a href = "{{url_for('showItem', category_name = item.category.name, item_id = item.id)}}">
+                    <p>{{item.title}}</p>
+                </a>
+                {% if request.path == "/catalog" or request.path == "/" %}
+                <p class="category-name">({{item.category.name}})</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container">
+    <div class="catalog">
+        <h3>{{item.title}}</h3>
+        <p>{{item.description}}</p>
+
+        {% if 'username' in session %}
+            <a class="btn btn-primary" href ="{{url_for('editItem', item_id = item.id)}}">Edit</a>
+            <a class="btn btn-secondary" href ="{{url_for('deleteItem', item_id = item.id)}}">Delete</a>
+            <a class="btn btn-default float-right" href="{{url_for('showCategory', category_name = item.category.name)}}">Back to {{item.category.name}}</a>
+        {% else %}
+             <a class="btn btn-default" href="{{url_for('showCategory', category_name = item.category.name)}}">Back to {{item.category.name}}</a>
+       {% endif %}
+
+
+    </div>
+</div>
+{% endblock %}

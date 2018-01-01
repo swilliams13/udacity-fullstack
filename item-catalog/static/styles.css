@@ -1,0 +1,44 @@
+body {
+    background-color: #e9ecef;
+    line-height: 1em;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.catalog {
+    background-color: #fff;
+    padding: 1em    ;
+    border-color: black;
+    border-width: thin;
+    border-style: solid;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.category-sidebar{
+    border-right-style: solid;
+    border-width: thin;
+}
+
+.item-list{
+    padding-left: 3em;
+}
+
+.category-name{
+    color: gray;
+}
+
+h3, .h3 {
+    font-weight: bold;
+}
+
+.form-control{
+    width: 50%;
+    margin-bottom: .5em;
+}
+
+.alert-dismiss-btn {
+    line-height: inherit;
+}
