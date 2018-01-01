@@ -86,8 +86,8 @@ If you type exit (or Ctrl-D) at the shell prompt inside the VM, you will be logg
 If you reboot your computer, you will need to run vagrant up to restart the VM.
 
 #### References
-- [Flask] (http://flask.pocoo.org/docs/0.12/)
-- [Jinja2 for Flask templates] (http://jinja.pocoo.org/docs/2.10/)
-- [Bootstrap4]( https://v4-alpha.getbootstrap.com/)
-- [Google Developer Console] (https://console.developers.google.com/apis)
-- [Facebook Developer page] (https://developers.facebook.com/)
+- [Flask](http://flask.pocoo.org/docs/0.12/)
+- [Jinja2 for Flask templates](http://jinja.pocoo.org/docs/2.10/)
+- [Bootstrap4](https://v4-alpha.getbootstrap.com/)
+- [Google Developer Console](https://console.developers.google.com/apis)
+- [Facebook Developer page](https://developers.facebook.com/)
