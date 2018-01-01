@@ -1,4 +1,4 @@
-# Movie Trailer Website: Fresh Tomatoes
+# Build An Item Catalog Project
 by Samantha Williams, Project in [Udacity's Full Stack Web Developer Nanodegree](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004).
 
 ### Overview
@@ -11,7 +11,7 @@ The goal of this project was to develop an application that provides a list of i
 - How to create JSON endpoints
 
 ## Getting Started
-[View Demo](http://swilliams13.github.io/udacity-fullstack/project1/fresh_tomatoes.html)
+Live Demo Coming Soon
 
 ### How to Run Locally
 1. Install Vagrant and VirtualBox, see instructions further below
